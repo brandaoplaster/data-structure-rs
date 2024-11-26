@@ -68,3 +68,22 @@ impl EducationLevel {
     }
   }
 }
+
+impl Gender {
+  pub fn to_string(&self) -> &'static str {
+    match self {
+      Gender::Male => "Male",
+      Gender::Female => "Female",
+      Gender::Other => "Other",
+    }
+  }
+
+  pub fn from_str(value: &str) -> Option<Self> {
+    match value {
+      "Male" => Some(Gender::Male),
+      "Female" => Some(Gender::Female),
+      "Other" => Some(Gender::Other),
+      _ => None,
+    }
+  }
+}
