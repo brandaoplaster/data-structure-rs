@@ -28,3 +28,43 @@ pub enum EducationLevel {
   Master,
   PhD,
 }
+
+impl MaritalStatus {
+  pub fn to_string(&self) -> &'static str {
+    match self {
+      MaritalStatus::Single => "Single",
+      MaritalStatus::Married => "Married",
+      MaritalStatus::Divorced => "Divorced",
+    }
+  }
+
+  pub fn from_str(value: &str) -> Option<Self> {
+    match value {
+      "Single" => Some(MaritalStatus::Single),
+      "Married" => Some(MaritalStatus::Married),
+      "Divorced" => Some(MaritalStatus::Divorced),
+      _ => None,
+    }
+  }
+}
+
+impl EducationLevel {
+  pub fn to_string(&self) -> &'static str {
+    match self {
+      EducationLevel::HighSchool => "HighSchool",
+      EducationLevel::Bachelor => "Bachelor",
+      EducationLevel::Master => "Master",
+      EducationLevel::PhD => "PhD",
+    }
+  }
+
+  pub fn from_string(value: &str) -> Option<Self> {
+    match value {
+      "HighSchool" => Some(EducationLevel::HighSchool),
+      "Bachelor" => Some(EducationLevel::Bachelor),
+      "Master" => Some(EducationLevel::Master),
+      "PhD" => Some(EducationLevel::PhD),
+      _ => None,
+    }
+  }
+}
