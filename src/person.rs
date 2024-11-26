@@ -78,7 +78,7 @@ impl Gender {
     }
   }
 
-  pub fn from_str(value: &str) -> Option<Self> {
+  pub fn from_string(value: &str) -> Option<Self> {
     match value {
       "Male" => Some(Gender::Male),
       "Female" => Some(Gender::Female),
