@@ -1,3 +1,5 @@
+#[derive(Debug)]
+
 pub struct Person {
   pub id: u32,
   pub name: String,
@@ -10,17 +12,23 @@ pub struct Person {
   pub marital_status: MaritalStatus,
 }
 
+#[derive(Debug)]
+
 pub enum Gender {
   Male,
   Female,
   Other,
 }
 
+#[derive(Debug)]
+
 pub enum MaritalStatus {
   Single,
   Married,
   Divorced,
 }
+
+#[derive(Debug)]
 
 pub enum EducationLevel {
   HighSchool,
