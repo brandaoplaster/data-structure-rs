@@ -12,7 +12,7 @@ pub fn save_to_file(filename: &str, persons: &[Person]) -> io::Result<()> {
   for person in persons {
     writeln!(
       file,
-      "{}|{}|{}|{}|{:.2}|{}|{}|{}|{}",
+      "{},{},{},{},{:.2},{},{},{},{};",
       person.id,
       person.name,
       person.lastname,
