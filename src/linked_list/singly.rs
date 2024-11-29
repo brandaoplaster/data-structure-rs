@@ -27,4 +27,21 @@ impl LinkedList {
       current.next = Some(new_node);
     }
   }
+
+  pub fn delete_by_id(&mut self, id: u32) -> bool {
+    let mut prev: *mut Option<Box<Node>> = &mut self.head;
+
+    while let Some(ref mut current) = unsafe { &mut *prev } {
+      if current.value.id == id {
+        // Remove o nó atual apontando para o próximo
+        unsafe {
+          *prev = current.next.take();
+        }
+        return true;
+      }
+      prev = &mut current.next as *mut _;
+    }
+
+    false
+  }
 }
