@@ -33,7 +33,6 @@ impl LinkedList {
 
     while let Some(ref mut current) = unsafe { &mut *prev } {
       if current.value.id == id {
-        // Remove o nó atual apontando para o próximo
         unsafe {
           *prev = current.next.take();
         }
