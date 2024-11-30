@@ -59,4 +59,16 @@ impl LinkedList {
 
     false
   }
+
+  pub fn find_by_name(&self, name: &str) -> Option<&Person> {
+    let mut current = &self.head;
+
+    while let Some(node) = current {
+      if node.value.name.eq_ignore_ascii_case(name) {
+        return Some(&node.value);
+      }
+      current = &node.next;
+    }
+    None
+  }
 }
