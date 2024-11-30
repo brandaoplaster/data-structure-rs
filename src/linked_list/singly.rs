@@ -43,4 +43,20 @@ impl LinkedList {
 
     false
   }
+
+  pub fn delete_by_name(&mut self, name: &str) -> bool {
+    let mut prev: *mut Option<Box<Node>> = &mut self.head;
+
+    while let Some(ref mut current) = unsafe { &mut *prev } {
+      if current.value.name.eq_ignore_ascii_case(name) {
+        unsafe {
+          *prev = current.next.take();
+        }
+        return true;
+      }
+      prev = &mut current.next;
+    }
+
+    false
+  }
 }
